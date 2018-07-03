@@ -75,5 +75,17 @@
             @yield('content')
         </main>
     </div>
+<script>
+            var countryData = $.fn.intlTelInput.getCountryData();
+            $.each(countryData, function(i, country) {
+              country.name = country.name.replace(/.+\((.+)\)/,"$1");
+            });
+            $("#phonenumber").intlTelInput({
+              utilsScript: "../../build/js/utils.js" // just for formatting/placeholders etc
+            });
+        </script>
+
+        <script src="{{URL::asset('boot4/jquery/jquery.js') }}" ></script>
+
 </body>
 </html>
